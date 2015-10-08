@@ -7,6 +7,7 @@
 #include "insertion_sort.h"
 #include "selection_sort.h"
 #include "merge_sort.h"
+#include "quick_sort.h"
 
 using namespace std;
 
@@ -17,10 +18,13 @@ int main()
 	array.resize(10);
 
 	std::generate(array.begin(), array.end(), rand);
+	copy(array.begin(), array.end(), ostream_iterator<int>(cout, " "));
+	cout << endl;
 	//BubbleSort(array);
 	//InsertionSort(array);
 	//SelectionSort(array);
-	MergeSort(array);
+	//MergeSort(array);
+	QuickSort(array);
 
 	copy(array.begin(), array.end(), ostream_iterator<int>(cout, " "));
 
