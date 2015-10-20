@@ -48,5 +48,26 @@ int Partition(vector<T> &items, int left, int right, int pivotIndex)
 	return storeIndex;
 }
 
+template<typename ForwardIterator>
+ForwardIterator quick_sort(ForwardIterator start, ForwardIterator end)
+{
+	// typedef не будем считать за часть реализации, с ним просто удобнее    
+	typedef typename std::iterator_traits<ForwardIterator>::value_type type;
+
+	// Безумная Быстрая сортировка на C++ в одну строку 
+	// Не повторять в реальной жизни
+
+	return (start == end) ? end : quick_sort(
+
+		std::partition(
+
+			quick_sort(start,
+
+				std::partition(start, end, std::bind2nd(std::less<type>(), *start))),
+
+			end, std::bind2nd(std::less_equal<type>(), *start)
+		),
+		end);
+}
 
 #endif // QUICK_SORT_H_

@@ -24,7 +24,10 @@ int main()
 	//InsertionSort(array);
 	//SelectionSort(array);
 	//MergeSort(array);
-	QuickSort(array);
+	//QuickSort(array);
+	//bubble_sort(array.begin(), array.end());
+	//selection_sort(array.begin(), array.end());
+	insertion_sort(array.begin(), array.end());
 
 	copy(array.begin(), array.end(), ostream_iterator<int>(cout, " "));
 

@@ -60,6 +60,16 @@ void Merge(vector<T> &items, vector<T> &left, vector<T> &right)
 	}
 }
 
+template<typename BidirectionalIterator>
+BidirectionalIterator merge_sort(BidirectionalIterator start, BidirectionalIterator end)
+{
+	auto middle = std::next(start, std::distance(start, end) / 2);
+
+	if (start != middle)
+		std::inplace_merge(start, merge_sort(start, middle), merge_sort(middle, end));
+
+	return end;
+}
 
 #endif // MERGE_SORT_H_ 
 

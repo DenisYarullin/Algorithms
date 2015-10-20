@@ -22,5 +22,13 @@ void BubbleSort(vector<T> &items)
 	} while (swapped != false);
 }
 
+template <typename ForwardIterator>
+void bubble_sort(ForwardIterator start, ForwardIterator end)
+{
+	for (auto i = start; i != end; ++i)
+		for (auto j = i; j != end; ++j)
+		if (*i > *j)
+			std::iter_swap(i, j);
+}
 
 #endif // BUBBLE_SORT_H_

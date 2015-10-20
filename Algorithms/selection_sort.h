@@ -38,5 +38,11 @@ int FindIndexOfSmallestFromIndex(vector<T> &items, int sortedRangeEnd)
 	return currentSmallestIndex;
 }
 
+template <typename ForwardIterator>
+void selection_sort(ForwardIterator start, ForwardIterator end)
+{
+	for (auto i = start; i != end; ++i)
+		std::iter_swap(i, std::min_element(i, end));
+}
 
 #endif // SELECTION_SORT_H_

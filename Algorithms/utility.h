@@ -17,6 +17,14 @@ void Swap(vector<T> &items, int left, int right)
 	}
 }
 
+template <typename InputIterator>
+void print(InputIterator start, InputIterator end, const char *delim = " ")
+{
+	typedef typename std::iterator_traits<InputIterator>::value_type type;
+
+	std::copy(start, end, std::ostream_iterator<type>(std::cout, delim));
+}
+
 
 #endif // UTILITY_H_
 

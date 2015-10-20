@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <exception>
+#include "utility.h"
 
 using namespace std;
 
@@ -61,5 +62,19 @@ void Insert(vector<T> &items, int indexInsertingAt, int indexInsertingFrom)
 	items[indexInsertingAt + 1] = temp;
 }
 
+template <typename ForwardIterator>
+void insertion_sort(ForwardIterator start, ForwardIterator end)
+{
+	for (auto i = start; i != end; ++i)
+		std::rotate(std::upper_bound(start, i, *i), i, std::next(i));
+}
+
+template<typename RandomAccessIterator>
+void shell_sort(RandomAccessIterator start, RandomAccessIterator end)
+{
+	for (auto x = (end - start) / 2; x != 0; x /= 2)
+		for (auto i = start + x; i != end; ++i)
+			std::rotate(std::upper_bound(start, i, *i), i, std::next(i));
+}
 
 #endif // INSERTION_SORT_H_
